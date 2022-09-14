@@ -1,28 +1,20 @@
 /*
- * File: 11-print_to_98.c
+ * File: 3-islower.c
  * Auth: Brennan D Baraban
  */
 
-#include <stdio.h>
+#include "holberton.h"
 
 /**
- * print_to_98 - Prints all natural numbers from input to 98,
- *               in order separated by a comma followed by a space.
- * @n: The number to begin counting at.
+ * _islower - Checks if a character is lowercase.
+ * @c: The character to be checked.
+ *
+ * Return: 1 if character is lowercase, 0 otherwise.
  */
-void print_to_98(int n)
+int _islower(int c)
 {
-	if (n >= 98)
-	{
-		while (n > 98)
-			printf("%d, ", n--);
-		printf("%d\n", n);
-	}
-
+	if (c >= 'a' && c <= 'z')
+		return (1);
 	else
-	{
-		while (n < 98)
-			printf("%d, ", n++);
-		printf("%d\n", n);
-	}
+		return (0);
 }
