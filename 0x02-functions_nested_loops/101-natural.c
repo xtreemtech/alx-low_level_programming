@@ -1,27 +1,21 @@
-/*
- * File: 101-natural.c
- * Auth: Brennan D Baraban
- */
-
-#include <stdio.h>
+#include "holberton.h"
 
 /**
- * main - Lists all the natural numbers below 1024 (excluded)
- *        that are multiples of 3 or 5.
+ * print_alphabet_x10 -  prints the alphabet x10
  *
- * Return: Always 0.
  */
-int main(void)
+
+void print_alphabet_x10(void)
 {
-	int i, sum = 0;
+	int alpha;
+	int alpha2;
 
-	for (i = 0; i < 1024; i++)
+	for (alpha = 0; alpha <= 9; alpha++)
 	{
-		if ((i % 3) == 0 || (i % 5) == 0)
-			sum += i;
+		for (alpha2 = 'a'; alpha2 <= 'z'; alpha2++)
+		{
+			_putchar(alpha2);
+		}
+		_putchar('\n');
 	}
-
-	printf("%d\n", sum);
-
-	return (0);
 }
