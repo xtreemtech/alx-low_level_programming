@@ -1,35 +1,27 @@
-#include "main.h"
+/*
+ * File: 101-natural.c
+ * Auth: Brennan D Baraban
+ */
+
+#include <stdio.h>
 
 /**
-
-* print_alphabet_x10 - function to print abc 10 times
-
-*
-
-* Return: 0
-
-*/
-
-void print_alphabet_x10(void)
-
+ * main - Lists all the natural numbers below 1024 (excluded)
+ *        that are multiples of 3 or 5.
+ *
+ * Return: Always 0.
+ */
+int main(void)
 {
+	int i, sum = 0;
 
-char c, i;
+	for (i = 0; i < 1024; i++)
+	{
+		if ((i % 3) == 0 || (i % 5) == 0)
+			sum += i;
+	}
 
-for (i = 0; i <= 9; i++)
+	printf("%d\n", sum);
 
-{
-
-for (c = 'a'; c <= 'z'; c++)
-
-{
-
-_putchar(c);
-
-}
-
-_putchar('\n');
-
-}
-
+	return (0);
 }
