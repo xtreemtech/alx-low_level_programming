@@ -1,22 +1,18 @@
-nes (17 sloc)  384 Bytes
-
-/*
- * File: 0-whatsmyname.c
- * Auth: Brennan D Baraban
- */
-
 #include <stdio.h>
 
 /**
- * main - Prints the program name, followed by a new line.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
- *
- * Return: Always o.
+ * main -  print name
+ *@argc: int.
+ *@argv: char.
+ * Return: Always 0.
  */
-int main(int __attribute__((__unused__)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	printf("%s\n", argv[0]);
+	int i;
 
+	for (i = 0; i < argc ; i++)
+	{
+		printf("%s\n", argv[i]);
+	}
 	return (0);
 }
