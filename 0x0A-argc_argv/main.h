@@ -1,11 +1,2 @@
-#ifndef HOLBERTON
-#define HOLBERTON
-
-/* standard library */
-#include <stdio.h>
-#include <stdlib.h>
-
-/* putchar equivalent function */
-int _putchar(char c);
-
-#endif
+int _putchar(char c);                                                                                                                
+int check_num(char *str);
