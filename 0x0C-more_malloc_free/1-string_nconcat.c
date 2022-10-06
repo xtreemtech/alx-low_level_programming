@@ -1,49 +1,51 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
- * string_nconcat - len of 1st str, len of 2nd str, if n < 2nd, 2nd = n
- * 2nd + 1st = total len, malloc + null byte, loop to insert into temp arr
- * @s1: input one
- * @s2: input two
- * @n: s2's number of bytes
- * Return: 0
+ * string_nconcat - Entry point
+ *@s1: string 1
+ *@s2: string 2
+ *@n: number of bytes
+ * Return: pointer should point to a newly allocated space in memory or NULL
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *arr;
-	unsigned int i, j, co, co_2;
+	char *strnew = NULL;
+	unsigned int i, n1, n2, j, count, palabras;
 
+	count = 0;
+	palabras = 0;
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-
-	for (i = 0; s1[i] != '\0'; i++)
+	for (n1 = 0; s1[n1] != '\0'; n1++)
+		;
+	for (n2 = 0; s2[n2] != '\0'; n2++)
+		;
+	if (n >= n2)
 	{
-	}
+		palabras = n2;
 
-	for (j = 0; s2[j] != '\0'; j++)
+	} else
 	{
+		for (n2 = 0; n2 < n; n2++)
+			palabras++;
 	}
-
-	if (n < j)
-		j = n;
-
-	j += i;
-	arr = malloc(sizeof(char *) * (j + 1));
-
-	if (arr == NULL)
+	strnew = (char *)malloc((n1 + n2 + 1) * sizeof(char));
+	if (strnew == NULL)
+	{
 		return (NULL);
-
-	for (co = 0; co < i; co++)
-		arr[co] = s1[co];
-	for (co_2 = 0; co < j; co_2++)
-	{
-		arr[co] = s2[co_2];
-		co++;
 	}
-	co++;
-	arr[co] = '\0';
-	return (arr);
+	for (i = 0; s1[i] != '\0'; i++)
+		strnew[i] = s1[i];
+	for (j = 0; j < palabras; i++)
+	{
+		strnew[i] = s2[count];
+		count++;
+		j++;
+	}
+	strnew[i] = '\0';
+	return (strnew);
 }
