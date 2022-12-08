@@ -1,51 +1,53 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-
+#include <stdlib.h>
+#include "main.h"
 /**
- * string_nconcat - Entry point
- *@s1: string 1
- *@s2: string 2
- *@n: number of bytes
- * Return: pointer should point to a newly allocated space in memory or NULL
+ * _strlen - calculate and return string length
+ * @string: string
+ * Return: string length
+ */
+int _strlen(char *string)
+{
+	int i;
+
+	for (i = 0; string[i] != '\0'; i++)
+		;
+	return (i);
+}
+/**
+ * string_nconcat - concatenate s1 and n bytes of s2; return ptr to string
+ * @s1: string 1
+ * @s2: string 2
+ * @n: n bytes to concat from string 2
+ * Return: pointer to concatenated string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *strnew = NULL;
-	unsigned int i, n1, n2, j, count, palabras;
+	char *ptr;
+	int num, len, i, j;
 
-	count = 0;
-	palabras = 0;
-	if (s1 == NULL)
+	num = n;
+
+	if (s1 == NULL) /* account for NULL strings */
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	for (n1 = 0; s1[n1] != '\0'; n1++)
-		;
-	for (n2 = 0; s2[n2] != '\0'; n2++)
-		;
-	if (n >= n2)
-	{
-		palabras = n2;
-
-	} else
-	{
-		for (n2 = 0; n2 < n; n2++)
-			palabras++;
-	}
-	strnew = (char *)malloc((n1 + n2 + 1) * sizeof(char));
-	if (strnew == NULL)
-	{
+	if (num < 0) /* account for negative n bytes */
 		return (NULL);
-	}
-	for (i = 0; s1[i] != '\0'; i++)
-		strnew[i] = s1[i];
-	for (j = 0; j < palabras; i++)
-	{
-		strnew[i] = s2[count];
-		count++;
-		j++;
-	}
-	strnew[i] = '\0';
-	return (strnew);
+	if (num >= _strlen(s2)) /* account for n too big */
+		num = _strlen(s2);
+
+	len = _strlen(s1) + num + 1; /* +1 to account for null pointer */
+
+	ptr = malloc(sizeof(*ptr) * len); /* malloc and check for error */
+	if (ptr == NULL)
+		return (NULL);
+
+	for (i = 0; s1[i] != '\0'; i++) /* concat */
+		ptr[i] = s1[i];
+	for (j = 0; j < num; j++)
+		ptr[i + j] = s2[j];
+	ptr[i + j] = '\0';
+
+	return (ptr);
 }

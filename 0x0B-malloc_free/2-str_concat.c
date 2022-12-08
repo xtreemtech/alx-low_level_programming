@@ -1,41 +1,52 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 /**
- * str_concat - Entry point
- *@s1: string 1
- *@s2: string 2
- * Return: pointer should point to a newly allocated space in memory or NULL
- */
+  *str_concat - concatenates 2 strings.
+  * a NULL string is treated as an empty string.
+  *@s1: pointer to string.
+  *@s2: pointer to string.
+  *
+  *Return: pointer to newly allocated memory which
+  *has s1, s2 and null byte.
+  *NULL on failure.
+  */
 char *str_concat(char *s1, char *s2)
 {
-	char *strnew = NULL;
-	unsigned int i;
-	int n1;
-	int n2;
-	int count;
+	unsigned int len1, len2, size, i, j;
+	char *nstr;
 
-	count = 0;
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
 		s2 = "";
-	for (n1 = 0; s1[n1] != '\0'; n1++)
-		;
-	for (n2 = 0; s2[n2] != '\0'; n2++)
-		;
-	strnew = (char *)malloc((n1 + n2 + 1) * sizeof(char));
-	if (strnew == NULL)
-	{
+
+	len1 = 0;
+	while (s1[len1] != '\0')
+		len1++;
+	len2 = 0;
+	while (s2[len2] != '\0')
+		len2++;
+
+	size = len1 + len2;
+
+	nstr = malloc((sizeof(char) * size) + 1);
+	/*check if malloc was successful */
+	if (nstr == NULL)
 		return (NULL);
-	}
-	for (i = 0; s1[i] != '\0'; i++)
-		strnew[i] = s1[i];
-	for (; s2[count] != '\0'; i++)
+
+	i = 0;
+	while (i < len1)
 	{
-		strnew[i] = s2[count];
-		count++;
+		nstr[i] = s1[i];
+		i++;
 	}
-	return (strnew);
+	j = 0;
+	while (i <= size)
+	{
+		nstr[i] = s2[j];
+		i++;
+		j++;
+	}
+	return (nstr);
 }

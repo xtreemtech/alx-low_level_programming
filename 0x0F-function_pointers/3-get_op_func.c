@@ -1,13 +1,10 @@
-#include"3-calc.h"
+#include "3-calc.h"
 /**
- * get_op_func - get the operator and redirect to the func.
- * @s: the operator
-(* a blank line
-* Description: get the operator and redirect to the func.)?
-(* section header: 3-calc.h)*
-* Return: return null or the function to do.
-*/
-
+  *get_op_func - function selects the correct function to perform.
+  *@s: operator used.
+  *
+  *Return: correct function result or NULL if operator is wrong.
+  */
 int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
@@ -23,9 +20,9 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 	while (i < 5)
 	{
-		if (strcmp(s, ops[i].op) == 0)
+		if (s[0] == ops[i].op[0])
 		{
-			return (*(ops[i]).f);
+			return (ops[i].f);
 		}
 		i++;
 	}

@@ -1,1 +1,1 @@
-C - Hello, World
+this is a c hello world readme

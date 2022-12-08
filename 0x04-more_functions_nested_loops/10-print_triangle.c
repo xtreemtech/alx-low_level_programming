@@ -1,34 +1,34 @@
-/*
- * File: 10-print_triangle.c
- * Auth: Brennan D Baraban
- */
-
 #include "main.h"
 
 /**
- * print_triangle - Prints a triangle, using the character #.
- * @size: The size of the triangle.
+ * print_triangle - check for a digit
+ * @size : integer type
+ * Return:void
  */
+
 void print_triangle(int size)
 {
-	int hash, index;
 
-	if (size > 0)
+	int i = 1, ii;
+
+	while (i <= size && size > 0)
 	{
-		for (hash = 1; hash <= size; hash++)
+		ii = 0;
+		while (ii < size - i)
 		{
-			for (index = size - hash; index > 0; index--)
-				_putchar(' ');
-
-			for (index = 0; index < hash; index++)
-				_putchar('#');
-
-			if (hash == size)
-				continue;
-
-			_putchar('\n');
+			_putchar(' ');
+			ii++;
 		}
-	}
+		ii = 0;
+		while (ii < i)
+		{
+			_putchar('#');
+			ii++;
+		}
 
-	_putchar('\n');
+		_putchar('\n');
+		i++;
+	}
+	if (i == 1)
+		_putchar('\n');
 }

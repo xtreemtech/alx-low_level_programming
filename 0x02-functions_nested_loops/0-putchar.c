@@ -1,27 +1,19 @@
-/*
- * File: 0-holberton.c
- * Auth: Brennan D Baraban
- *
- */
-
 #include "main.h"
-
 /**
- * main - Prints "Holberton" followed by a new line.
- *
- * Return: Always 0.
+ * main - Print "Holberton" followed by a new line.
+ * Description: You are not allowed to include standard libraries.
+ * Return: 0
  */
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
-	_putchar('\n');
+int c = 0;
+char holberton[10] = "_putchar\n";
 
-	return (0);
+while (c < 9)
+{
+_putchar(holberton[c]);
+c++;
 }
+return (0);
+}
+

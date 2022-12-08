@@ -1,39 +1,42 @@
-/*
- * File: 101-print_comb4.c
- * Auth: Brennan D Baraban
- */
-
 #include <stdio.h>
-
 /**
- * main - Prints all possible combinations of three different digits,
- *        in ascending order, separated by a comma followed by a space.
+ * main - program that prints all possible different combinations
+ * of thress digits.
  *
- * Return: Always 0.
+ * Return: 0
  */
 int main(void)
 {
-	int digit1, digit2, digit3;
+	int i;
+	int n;
+	int j;
 
-	for (digit1 = 0; digit1 < 8; digit1++)
+	for (i = 48; i < 58; i++)
 	{
-		for (digit2 = digit1 + 1; digit2 < 9; digit2++)
+		for (n = 48; n < 58; n++)
 		{
-			for (digit3 = digit2 + 1; digit3 < 10; digit3++)
+			if (n > i)
 			{
-				putchar((digit1 % 10) + '0');
-				putchar((digit2 % 10) + '0');
-				putchar((digit3 % 10) + '0');
+				for (j = 48; j < 58; j++)
+				{
+					if (j > n)
+					{
+					putchar(i);
+					putchar(n);
+					putchar(j);
+					if (i == 55 && n == 56 && j == 57)
+					{
+						break;
+					}
 
-				if (digit1 == 7 && digit2 == 8 && digit3 == 9)
-					continue;
-				putchar(',');
-				putchar(' ');
+					putchar(',');
+					putchar(' ');
+					}
+				}
 			}
 		}
 	}
 
 	putchar('\n');
-
 	return (0);
 }

@@ -1,1 +1,1 @@
-C - More malloc, free
+Solution to tasks on more malloc

@@ -1,18 +1,13 @@
-/*
- * File: 10-add.c
- * Auth: Brennan D Baraban
- */
-
 #include "main.h"
-
 /**
- * add - Adds two integers.
- * @num1: The first integer to be added.
- * @num2: The second integer to be added.
+ *add - sum of two numbers.
+ *@n: number to be added.
+ *@p: number to be added.
  *
- * Return: The result of the addition.
+ *Return: sum.
  */
-int add(int num1, int num2)
+int add(int n, int p)
 {
-	return (num1 + num2);
+int sum = n + p;
+return (sum);
 }
